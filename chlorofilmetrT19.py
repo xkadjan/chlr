@@ -87,6 +87,7 @@ def ArgParser():
     parser.add_argument('awb_gains_4', type=int, help='awb_gains_4')
     args = parser.parse_args()
     parser.print_help()
+    print('.')
     return args
     
 def DoneIndication():
