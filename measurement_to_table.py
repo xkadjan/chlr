@@ -8,7 +8,7 @@ Created on Fri Sep 20 09:21:51 2019
 import os
 import pandas as pd
 
-dir = r"C:\Users\xkadj\OneDrive\PROJEKTY\IGA\IGA19 - Smartphone\MERENI\200313_kedluben"
+dir = r"C:\Users\xkadj\OneDrive\PROJEKTY\IGA\IGA19 - Smartphone\MERENI\200416_fytotron"
 
 output_dataframe = pd.DataFrame()
 folders_list = [x[0] for x in os.walk(dir)]
@@ -17,8 +17,8 @@ for measurement_dir in folders_list[1:]:
     if "unused" in measurement_dir: continue    #filter using by "unused" in any folder name
     variant_name = measurement_dir.split('\\')[-2]
     leaf_name = measurement_dir.split('\\')[-1]
-    
-    files = os.listdir(measurement_dir)    
+
+    files = os.listdir(measurement_dir)
     csvs = [i for i in files if 'csv' in i]
     csvfilepaths = [os.path.join(dir, variant_name, leaf_name, name) for name in csvs]
 
@@ -44,5 +44,4 @@ output_file.write(output_dataframe.to_csv(index=False,line_terminator='\n'))
 output_file.close()
 
 
-        
-        
+
