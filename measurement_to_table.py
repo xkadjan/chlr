@@ -8,7 +8,7 @@ Created on Fri Sep 20 09:21:51 2019
 import os
 import pandas as pd
 
-dir = r"C:\Users\xkadj\OneDrive\PROJEKTY\IGA\IGA19 - Smartphone\MERENI\200416_fytotron"
+dir = r"C:\Users\xkadj\OneDrive\PROJEKTY\IGA\IGA19 - Smartphone\MERENI\200618_psenice"
 
 output_dataframe = pd.DataFrame()
 folders_list = [x[0] for x in os.walk(dir)]
