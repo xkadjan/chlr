@@ -25,3 +25,17 @@ chlr = T19.drop(['variant','leaf','measurement'],axis=1)
 pearsoncorr_chlr = chlr.corr(method='pearson')
 plot_pearsoncorr(pearsoncorr_chlr,'Chlorophyll')
 
+plants = pd.DataFrame()
+for plant in range(90):
+    plant = chlr.iloc[(plant*10):(plant*10)+10].mean()
+    plants = plants.append(plant,ignore_index=True)
+pearsoncorr_plants = plants.corr(method='pearson')
+plot_pearsoncorr(pearsoncorr_plants,'Chlorophyll')
+
+plants_selection = plants[['ExG_n','spad']]
+
+plt.plot(chlr.ExG_n)
+plt.plot(chlr.spad/50)
+
+plt.plot(chlr.r)
+plt.plot(chlr.spad/150)
