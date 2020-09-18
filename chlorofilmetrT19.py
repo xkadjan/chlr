@@ -171,12 +171,9 @@ if __name__ == "__main__":
                 g = G / (R + G + B)
                 b = B / (R + G + B)
 
-                ExG = 2 *  G - R - B     #nepotrebujeme
+                ExG = 2 *  G - R - B
                 ExG_n = 2 *  g - r - b   # Woebbecke et al., 1995 in [4]
                 print("ExG_n: ",ExG_n)
-
-                honza_1 = ((mean_g / mean_rgb) - 1) * 1000      #nepotrebujeme
-                vasek_1 = np.abs(180 - (((1 - ExG_n) * 100) - 199.8) * 1000)        #nepotrebujeme
 
                 kawa = (R-B)/(R+B)	# chlorophyll	wheat		Kawashima & Naktani, 1998 in [1]	1.67 RMSE
                 yuzhu = G/(R+G+B)	# nitrogen	    pepper		Yuzhu et al., 2011 in [1]		1,31, chlorophyll	broccoli	Suzuki et al., 1999 in [1]
@@ -184,8 +181,6 @@ if __name__ == "__main__":
                 perez = (G-R)/(G+R)	# NDI		    soybean		Perez et al., 2000 in [4]
                 geor = 1.4*(r-b)	# ExR index 			    George E. Meyeer et al., 2018 [Google Books: https://books.google.cz/books?id=93W7BQAAQBAJ&pg=PA193&lpg=PA193&dq=exr+index&source=bl&ots=Yh59teV7Dz&sig=ACfU3U3YmbXGLar6R5g2_gLMo5AC8ZOH-g&hl=cs&sa=X&ved=2ahUKEwif6v3Uv43oAhWN-qQKHfMaC84Q6AEwBHoECAkQAQ#v=onepage&q=exr%20index&f=false]
                 nas = ExG_n-geor    # ExG - ExR
-
-                #todo: vymazat: ExG, vasek, honza
 
                 measured_values = [measurement,R,G,B,r,g,b,mean_rgb,ExG,ExG_n,honza_1,vasek_1,kawa,yuzhu,adam,perez,geor,nas]
                 with open(logfile, 'a') as f:
