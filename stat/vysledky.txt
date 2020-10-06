@@ -1,0 +1,66 @@
+Lineární model
+-------------------------
+při použití všech vypočítaných indexů a všech dat vychází model takto (backward selection):
+tento model lze použít jako inicální náhled na data. 
+-----------------------------------------------------
+Call:
+lm(formula = spad ~ G + kawa + R, data = tab)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.6410 -1.1931 -0.0238  0.8538  5.5885 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   75.430      5.976  12.621  < 2e-16 ***
+G             45.719      9.261   4.936 4.05e-06 ***
+kawa         -25.943      4.944  -5.247 1.16e-06 ***
+R           -108.817      9.000 -12.091  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.231 on 83 degrees of freedom
+Multiple R-squared:  0.7699,	Adjusted R-squared:  0.7616 
+F-statistic: 92.57 on 3 and 83 DF,  p-value: < 2.2e-16
+
+---------------------------------------------------------------------------
+
+Lineární model při použití trénovacích a testovacích dat zvlášť:
+prediktory jsou převzaty z předchozího modelu
+----------------------------------------------
+Call:
+lm(formula = spad ~ G + kawa + R, data = train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.2916 -1.0744 -0.2634  0.6232  5.2409 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   71.319      6.693  10.656 5.19e-14 ***
+G             46.959     10.915   4.302 8.74e-05 ***
+kawa         -22.798      5.291  -4.309 8.55e-05 ***
+R           -106.544     10.378 -10.266 1.75e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 2.216 on 46 degrees of freedom
+Multiple R-squared:   0.79,	Adjusted R-squared:  0.7763 
+F-statistic: 57.68 on 3 and 46 DF,  p-value: 1.266e-15
+
+Ověření spolehlivosti modelu - aplikace na testovací data:
+----------------------------------------------------------
+Prumerna absolutni odchylka testovacich dat: 1.8075047739293
+
+================================================================
+Předpověď pomocí neuronové sítě 
+================================================================
+použity stejné proměnné jako v případě lineárního modelu
+-------------------------------------------------------
+Prumerna odchylka testovacich dat: 1.739277858333186
+
+za použití pouze r, g a b hodnot
+--------------------------------------------------
+viz soubor python_script.py
+
+Prumerna odchylka testovacich dat: 1.8959708177721146
